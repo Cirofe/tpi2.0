@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Carta d'Identità</title>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <h1>Carta d'Identità</h1>
+        </div>
+        <div class="info">
+            <img src="rudi.jpg.jpg" alt="Foto">
+            <p><strong>Nome:</strong> <span id="nome"></span></p>
+            <p><strong>Cognome:</strong> <span id="cognome"></span></p>
+            <p><strong>Data di nascita:</strong> <span id="data_di_nascita"></span></p>
+            <p><strong>Luogo di nascita:</strong> <span id="luogo_di_nascita"></span></p>
+           
+        </div>
+
+    </div>
+    <script>
+        fetch('./dati.json')
+            .then((response) => response.json())
+            .then((json) => {
+                   
+                    document.getElementById("nome").innerHTML = json.nome;
+                    document.getElementById("cognome").innerHTML = json.cognome;
+                    document.getElementById("data_di_nascita").innerHTML = json.data_di_nascita;
+                    document.getElementById("luogo_di_nascita").innerHTML = json.luogo_di_nascita;
+            });
+    </script>
+    
+</body>
+</html>
